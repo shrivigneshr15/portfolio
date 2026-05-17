@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R. Shrivignesh | HR Professional Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f38;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #fdf8f0;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --card-bg: #ffffff;
+    --border: #e8e0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.15);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.1);
+  }
+
+  .hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hero-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+  }
+
+  .hero-contact:hover { color: var(--gold); }
+
+  .hero-contact .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badge {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  /* MAIN */
+  .main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+
+  .section { margin-bottom: 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-line {
+    height: 1px;
+    flex: 1;
+    background: var(--border);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .section-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SUMMARY */
+  .summary-card {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .summary-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: rgba(201,168,76,0.1);
+    position: absolute;
+    top: -10px; left: 16px;
+    line-height: 1;
+  }
+
+  .summary-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .cert-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(15,31,56,0.1);
+  }
+
+  .cert-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #fff 0%, #fdf8f0 100%);
+  }
+
+  .cert-issuer {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .cert-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .cert-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .cert-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cert-verify {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .cert-verify:hover { border-color: var(--gold); }
+
+  /* INTERNSHIPS */
+  .intern-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .intern-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 16px;
+    transition: box-shadow 0.2s;
+  }
+
+  .intern-card:hover { box-shadow: 0 4px 16px rgba(15,31,56,0.08); }
+
+  .intern-bar {
+    background: var(--gold);
+    border-radius: 4px;
+    width: 4px;
+  }
+
+  .intern-content {}
+
+  .intern-role {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .intern-company {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .intern-duration {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .intern-desc {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  /* RESEARCH */
+  .research-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 14px;
+  }
+
+  .research-type {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .research-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .research-venue {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 24px;
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+
+  .skill-tag:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .skill-tag.highlight {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-num span { color: var(--gold); }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+  }
+
+  .footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 60px 24px 48px; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">HR Professional Portfolio</div>
+    <h1>R. <span>Shrivignesh</span></h1>
+    <p class="hero-sub">MSW (HRM) · People Analytics · HR Operations · HRIS Administration</p>
+    <div class="hero-contacts">
+      <a class="hero-contact" href="tel:+918838366433"><span class="dot"></span>+91 88383 66433</a>
+      <a class="hero-contact" href="mailto:shrivigneshr15@gmail.com"><span class="dot"></span>shrivigneshr15@gmail.com</a>
+      <a class="hero-contact" href="https://linkedin.com/in/shrivignesh-r15" target="_blank"><span class="dot"></span>linkedin.com/in/shrivignesh-r15</a>
+      <a class="hero-contact"><span class="dot"></span>Tamil Nadu, India</a>
+    </div>
+    <div class="badges">
+      <span class="badge">Top 1% — Alagappa University</span>
+      <span class="badge">IIT Guwahati Elite &amp; Topper</span>
+      <span class="badge">UC Irvine Certified</span>
+      <span class="badge">1,600+ Hours Fieldwork</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">1<span>,</span>600<span>+</span></div>
+      <div class="stat-label">Hours of HR Fieldwork</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><span>85</span>%</div>
+      <div class="stat-label">NPTEL Score — Top 5% of 6,423</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><span>4</span></div>
+      <div class="stat-label">HRIS Platforms — Ramco, Ascent, Smartface, Backbone</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="summary-card">
+      <p>MSW (HRM) graduate from Alagappa University (Top 1%) with 1,600+ hours of fieldwork and hands-on experience in employee documentation, onboarding, HRIS administration, payroll liaison and HR operations. Certified in HR Analytics (UC Irvine), AI in HRM (IIT Guwahati, Elite and Topper, 85%) and Advanced Strategic HRM (IIT Bombay). Experienced across HRIS platforms including Ramco, Ascent, Smartface and Backbone with strong exposure to employee lifecycle management, compliance and HR reporting. Proven leader as Vice President AUSWA managing 300+ members with strong advisory, communication and stakeholder management skills.</p>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card featured">
+        <div class="cert-badge">Topper</div>
+        <div class="cert-issuer">NPTEL — IIT Guwahati</div>
+        <div class="cert-name">AI in Human Resource Management</div>
+        <div class="cert-meta">Score: 85% · Top 5% of 6,423 candidates · Jan–Apr 2026</div>
+        <a class="cert-verify" href="https://swayam.gov.in" target="_blank">Verify Certificate →</a>
+      </div>
+      <div class="cert-card featured">
+        <div class="cert-badge">Verified</div>
+        <div class="cert-issuer">University of California, Irvine</div>
+        <div class="cert-name">Human Resources Analytics</div>
+        <div class="cert-meta">Coursera · Jan 24, 2026 · ID: 4JHNJJ6SL2JL</div>
+        <a class="cert-verify" href="https://coursera.org/verify/4JHNJJ6SL2JL" target="_blank">Verify Certificate →</a>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">NPTEL — IIT Bombay</div>
+        <div class="cert-name">Advanced Strategic Human Resource Management</div>
+        <div class="cert-meta">Score: 75% · 2025</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Alagappa University</div>
+        <div class="cert-name">1,600 Hours Field Work Experience</div>
+        <div class="cert-meta">2024–2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNSHIPS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <h2 class="section-title">Internship Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="intern-list">
+      <div class="intern-card">
+        <div class="intern-bar"></div>
+        <div class="intern-content">
+          <div class="intern-role">Human Resources Intern</div>
+          <div class="intern-company">Tube Investments of India Limited</div>
+          <div class="intern-duration">Feb 2026 – Mar 2026 · Chennai, Tamil Nadu</div>
+          <div class="intern-desc">Managed onboarding, employee documentation, safer recruitment practices and audit ready compliance for 1,000+ employee manufacturing workforce. Hands-on with HRIS platforms — Ramco, Ascent and Smartface. Supported payroll processing, statutory compliance and HR reporting.</div>
+        </div>
+      </div>
+      <div class="intern-card">
+        <div class="intern-bar"></div>
+        <div class="intern-content">
+          <div class="intern-role">Human Resources Intern</div>
+          <div class="intern-company">Assured Best Care Hospital (ABC Hospital)</div>
+          <div class="intern-duration">Jul 2025 – Oct 2025 · Trichy, Tamil Nadu</div>
+          <div class="intern-desc">Administered Backbone HRIS for full employee lifecycle management including onboarding, attendance tracking, leave administration, grievance redressal and offboarding for 200+ employees. Ensured statutory compliance under Maternity Benefit Act, Minimum Wages Act and Equal Remuneration Act.</div>
+        </div>
+      </div>
+      <div class="intern-card">
+        <div class="intern-bar"></div>
+        <div class="intern-content">
+          <div class="intern-role">Social Work Intern</div>
+          <div class="intern-company">HelpAge India</div>
+          <div class="intern-duration">May 2025 – Jun 2025 · Chennai, Tamil Nadu</div>
+          <div class="intern-desc">Gained exposure to NGO operations and CSR funded project implementation through elderly welfare and Mobile Health Unit initiatives. Supported community organisation programmes and stakeholder coordination.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <h2 class="section-title">Research &amp; Conferences</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="research-card">
+      <div class="research-type">Research Paper Presentation · International Conference</div>
+      <div class="research-title">"A Study on Employee Satisfaction with the Existing Performance Appraisal System in Selected IT Companies in Chennai"</div>
+      <div class="research-venue">International Social Work Day Conference · 2026</div>
+    </div>
+    <div class="research-card">
+      <div class="research-type">Panel Member · International Conference</div>
+      <div class="research-title">Session: "Need for Change in Current Social Work Curriculum"</div>
+      <div class="research-venue">International Social Work Day Conference · 2026</div>
+    </div>
+    <div class="research-card">
+      <div class="research-type">Poster Presentation · National Seminar</div>
+      <div class="research-title">"A Study on the Educational Status of a Nomadic Tribe in Sivagangai District"</div>
+      <div class="research-venue">MCC and ICSSR National Seminar · Madras Christian College</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot"></div>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <span class="skill-tag highlight">HR Analytics</span>
+      <span class="skill-tag highlight">People Analytics</span>
+      <span class="skill-tag highlight">HRIS Administration</span>
+      <span class="skill-tag">Employee Lifecycle Management</span>
+      <span class="skill-tag">Payroll Processing</span>
+      <span class="skill-tag">Statutory Compliance</span>
+      <span class="skill-tag">Onboarding and Offboarding</span>
+      <span class="skill-tag">Talent Acquisition</span>
+      <span class="skill-tag">Employee Relations</span>
+      <span class="skill-tag">Performance Management</span>
+      <span class="skill-tag highlight">MS Excel</span>
+      <span class="skill-tag highlight">Power BI</span>
+      <span class="skill-tag">Ramco HRIS</span>
+      <span class="skill-tag">Ascent HRIS</span>
+      <span class="skill-tag">Smartface</span>
+      <span class="skill-tag">Backbone HRIS</span>
+      <span class="skill-tag">HR Reporting</span>
+      <span class="skill-tag">Data Protection</span>
+      <span class="skill-tag">Stakeholder Management</span>
+      <span class="skill-tag">Canva</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>R. Shrivignesh · MSW (HRM) · Tamil Nadu, India</p>
+  <p style="margin-top: 6px;">
+    <a href="mailto:shrivigneshr15@gmail.com">shrivigneshr15@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/shrivignesh-r15" target="_blank">LinkedIn</a>
+  </p>
+</div>
+
+</body>
+</html>
